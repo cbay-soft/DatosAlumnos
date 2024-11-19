@@ -1,0 +1,15 @@
+annotated-types @ file:///C:/b/abs_0dmaoyhhj3/croot/annotated-types_1709542968311/work
+anyio @ file:///C:/b/abs_31grv7a7bl/croot/anyio_1729121290992/work
+click @ file:///C:/b/abs_f9ihnt72pu/croot/click_1698129847492/work
+colorama @ file:///C:/b/abs_a9ozq0l032/croot/colorama_1672387194846/work
+exceptiongroup @ file:///C:/b/abs_c5h1o1_b5b/croot/exceptiongroup_1706031441653/work
+fastapi @ file:///C:/b/abs_96d9k5nptn/croot/fastapi_1724789169469/work
+h11 @ file:///C:/b/abs_1czwoyexjf/croot/h11_1706652332846/work
+idna @ file:///C:/b/abs_aad84bnnw5/croot/idna_1714398896795/work
+pydantic @ file:///C:/b/abs_b7acb4hnl_/croot/pydantic_1725040540545/work
+pydantic_core @ file:///C:/b/abs_3ax4s6v28p/croot/pydantic-core_1724790490828/work
+python-multipart==0.0.17
+sniffio @ file:///C:/b/abs_3akdewudo_/croot/sniffio_1705431337396/work
+starlette @ file:///C:/b/abs_584arzjt6c/croot/starlette-recipe_1724683216853/work
+typing_extensions @ file:///C:/b/abs_0as9mdbkfl/croot/typing_extensions_1715268906610/work
+uvicorn @ file:///C:/b/abs_4drdrk8m2o/croot/uvicorn-split_1731433690629/work

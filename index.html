@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingreso de Datos</title>
+</head>
+<body>
+    <h1>Formulario de Ingreso de Datos</h1>
+    <form id="form-ingreso">
+        <label>Nombre:</label>
+        <input type="text" id="nombre" required><br><br>
+        <label>Carrera:</label>
+        <input type="text" id="carrera" required><br><br>
+        <label>Semestre:</label>
+        <input type="number" id="semestre" required><br><br>
+        <label>Materias (separadas por coma):</label>
+        <input type="text" id="materias" required><br><br>
+        <label>Horarios (separados por coma):</label>
+        <input type="text" id="horarios" required><br><br>
+        <button type="submit">Ingresar Datos</button>
+    </form>
+
+    <h1>Consulta de Datos</h1>
+    <form id="form-consulta">
+        <label>Contraseña:</label>
+        <input type="password" id="password" required><br><br>
+        <button type="submit">Consultar Datos</button>
+    </form>
+
+    <div id="resultados"></div>
+
+    <script>
+        // Función para manejar el ingreso de datos
+        document.getElementById("form-ingreso").addEventListener("submit", async (event) => {
+            event.preventDefault();
+
+            const data = {
+                nombre: document.getElementById("nombre").value,
+                carrera: document.getElementById("carrera").value,
+                semestre: parseInt(document.getElementById("semestre").value),
+                materias: document.getElementById("materias").value,
+                horarios: document.getElementById("horarios").value
+            };
+
+            const response = await fetch("http://127.0.0.1:8000/ingresar/", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data),
+            });
+
+            const result = await response.json();
+            alert(result.message);
+        });
+
+        // Función para manejar la consulta de datos
+        document.getElementById("form-consulta").addEventListener("submit", async (event) => {
+            event.preventDefault();
+
+            const password = document.getElementById("password").value;
+
+            const formData = new FormData();
+            formData.append("password", password);
+
+            const response = await fetch("http://127.0.0.1:8000/consultar/", {
+                method: "POST",
+                body: formData
+            });
+
+            if (response.status === 200) {
+                const data = await response.json();
+                const resultados = document.getElementById("resultados");
+                resultados.innerHTML = JSON.stringify(data.estudiantes, null, 2);
+            } else {
+                alert("Contraseña incorrecta");
+            }
+        });
+    </script>
+</body>
+</html>
